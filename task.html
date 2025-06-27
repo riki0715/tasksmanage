@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>松倉 タスク管理ツール</title>
+    <link rel="stylesheet" href="task.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <div id="starry-sky"></div>
+    <header>
+        <div class="logo">M.T.M</div>
+        <div id="current-time"></div>
+    </header>
+    
+    <div id="progress-container">
+        <div id="progress-text">0%</div>
+        <div id="progress-bar">
+            <div id="progress-bar-fill"></div>
+        </div>
+        <div id="progress-detail"></div>
+    </div>
+
+    <div class="add-task-container">
+        <input type="text" id="task-input" placeholder="新しいタスクを入力してEnter...">
+    </div>
+
+    <main class="task-board">
+        <div class="task-column" id="todo-column">
+            <h2>未対応</h2>
+            <div class="tasks" id="todo-tasks"></div>
+        </div>
+        <div class="task-column" id="inprogress-column">
+            <h2>対応中</h2>
+            <div class="tasks" id="inprogress-tasks"></div>
+        </div>
+        <div class="task-column" id="pending-column">
+            <h2>保留</h2>
+            <div class="tasks" id="pending-tasks"></div>
+        </div>
+        <div class="task-column" id="done-column">
+            <h2>完了</h2>
+            <div class="tasks" id="done-tasks"></div>
+        </div>
+    </main>
+
+    <div id="trash-can">
+        <span>🗑️</span>
+        <div>ゴミ箱</div>
+    </div>
+
+    <footer id="quote-container">
+        <p id="quote-text"></p>
+        <p id="quote-author"></p>
+    </footer>
+
+    <!-- Edit Task Modal -->
+    <div id="edit-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>タスクを編集</h2>
+            <label for="edit-task-title">タイトル:</label>
+            <input type="text" id="edit-task-title">
+            <label for="edit-memo">メモ:</label>
+            <textarea id="edit-memo" rows="4"></textarea>
+            <label for="edit-due-date">期日:</label>
+            <input type="date" id="edit-due-date">
+            <label for="edit-priority">優先度:</label>
+            <select id="edit-priority">
+                <option value="low">低</option>
+                <option value="medium">中</option>
+                <option value="high">高</option>
+            </select>
+            <button id="save-task-btn">保存</button>
+        </div>
+    </div>
+
+    <script src="task.js"></script>
+</body>
+</html>
